@@ -240,9 +240,10 @@ function package_newrelic_enabled() {
 export_env_dir "$3"
 
 # Download jq binary for JSON processing
-export PATH="$PWD/bin:$PATH"
-curl "http://${S3_BUCKET}.s3.amazonaws.com/jq/jq" -L -s -o - > "$PWD/bin/jq"
-chmod +x "$PWD/bin/jq"
+export PATH="$HOME/bin:$PATH"
+echo $S3_BUCKET
+curl "http://${S3_BUCKET}.s3.amazonaws.com/jq/jq" -L -s -o - > "$HOME/bin/jq"
+chmod +x "$HOME/bin/jq"
 
 DEFAULT_PHP="5.5.10"
 DEFAULT_NGINX="1.4.4"
